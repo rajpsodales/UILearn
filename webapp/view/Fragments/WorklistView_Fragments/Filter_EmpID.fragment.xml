@@ -1,0 +1,18 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core">
+	<SelectDialog
+		noDataText="No Products Found"
+		title="Select Product"
+		search=".onSearch"
+		confirm=".onDialogCloseEmp"
+		cancel=".onDialogClose"
+		items="{path: '/eshqzq378nwvnev6', sorter: [{path: 'EMPNM', ascending: 'true'}]}"
+>
+		<StandardListItem
+			title="{EMPNM}"
+			description="{EMPID}"
+			iconInset="false"
+			type="Active" />
+	</SelectDialog>
+</core:FragmentDefinition>

@@ -1,0 +1,172 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:core="sap.ui.core" 
+    xmlns:f="sap.ui.layout.form"
+    xmlns:l="sap.ui.layout" xmlns:gt="sap.ui.table" xmlns:upload="sap.m.upload">
+    <Panel  class = 'sapUiTinyMargin' expandable="true" headerText="Case Manager Details" width="auto">
+    	<!-- <VBox class="sapUiSmallMargin"> -->
+		<f:SimpleForm 
+			editable="true"
+			layout="ResponsiveGridLayout"
+			labelSpanXL="5"
+			labelSpanL="5"
+			labelSpanM="12"
+			labelSpanS="12"
+			adjustLabelSpan="false"
+			emptySpanXL="0"
+			emptySpanL="0"
+			emptySpanM="0"
+			emptySpanS="0"
+			columnsXL="2"
+			columnsL="2"
+			columnsM="2"
+			singleContainerFullSize="false" >
+			<f:content>
+				<core:Title  text="" />
+                <Label  text="Case Manager Name" design="Bold"> </Label>
+				<Input value="{oGlobalModel>/oClaimDetails/CASMG}"
+			placeholder=""
+			showValueHelp="true"
+			valueHelpRequest=".onValueHelpRequest" maxLength="100" ></Input>
+				<Label  text="Case Manager Employee ID" design="Bold" />
+                <Input value="{oGlobalModel>/oClaimDetails/CASMID}"
+			placeholder="Case Manager Employee ID" editable="false" maxLength="30"></Input>
+				<core:Title  text="" />
+				<Label  text="Case Manager Email" design="Bold" />
+                <Input value = "{oGlobalModel>/oClaimDetails/CASMGREMAIL}"
+			placeholder="Case Manager Email"  editable="false" maxLength="30"></Input>
+
+			</f:content>
+		</f:SimpleForm>
+	<!-- </VBox> -->
+   
+	<content>
+    </content>
+    </Panel>
+     <!-- Employee details -->
+    <Panel  class = 'sapUiTinyMargin' expandable="true" headerText="Employee Details" width="auto">
+    	<!-- <VBox class="sapUiSmallMargin"> -->
+		<l:BlockLayout  background="Dashboard" >
+		<l:BlockLayoutRow  class="sapUiNoContentPadding sapUiNoMargin">
+		<l:BlockLayoutCell  backgroundColorSet="ColorSet11" backgroundColorShade="ShadeD">
+		<f:SimpleForm  
+			editable="true"
+			layout="ResponsiveGridLayout"
+			labelSpanXL="5"
+			labelSpanL="5"
+			labelSpanM="12"
+			labelSpanS="12"
+			adjustLabelSpan="false"
+			emptySpanXL="0"
+			emptySpanL="0"
+			emptySpanM="0"
+			emptySpanS="0"
+			columnsXL="2"
+			columnsL="2"
+			columnsM="2"
+			singleContainerFullSize="false" >
+			<f:content>
+				<core:Title  text="" />
+                <Label  text="Employee Name" design="Bold"> </Label>
+				<Input value="{oGlobalModel>/oClaimDetails/EMPNM}"
+			placeholder=""
+			showValueHelp="true"
+			valueHelpRequest=".onValueHelpRequestEmp" maxLength="100"></Input>
+				<Label  text="
+				 ID" design="Bold" />
+                <Input value="{oGlobalModel>/oClaimDetails/EMPID}" placeholder="Employee ID" editable="false" maxLength="30"></Input>
+                <Label  text="Personnel Subarea" design="Bold" />
+                <Input value = "{oGlobalModel>/oClaimDetails/PSUBA}" placeholder="" editable="false" maxLength="100"></Input>
+                <Label  text="Hourly/Salaried" design="Bold" />
+                <Input value="{oGlobalModel>/oClaimDetails/HRSLR}"   placeholder="" editable="false" maxLength="100"></Input>
+				<core:Title  text="" />
+				<Label  text="Location" design="Bold" />
+                <Input value="{oGlobalModel>/oClaimDetails/LOCTN}"   placeholder=""  editable="false" maxLength="100"></Input>
+                <Label   text="Date of Birth" design="Bold" />
+                <Input value="{oGlobalModel>/oClaimDetails/HIRDT}"   placeholder=""  editable="false" maxLength="100"></Input>
+                <Label  text="Position" design="Bold" />
+                <Input value="{oGlobalModel>/oClaimDetails/POSIT}"   placeholder=""  editable="false" maxLength="100"></Input>
+                <Label  text="Crew" design="Bold" />
+                <Input value="{oGlobalModel>/oClaimDetails/CREW}"   placeholder=""  editable="false" maxLength="100"></Input>
+
+			</f:content>
+		</f:SimpleForm>
+		</l:BlockLayoutCell>
+		</l:BlockLayoutRow>
+		</l:BlockLayout>
+		
+	<!-- </VBox> -->
+   
+	<content>
+    </content>
+    </Panel>
+
+    <!-- short term disability panel -->
+    <Panel  class = 'sapUiTinyMargin' expandable="true" headerText="Short Term Disability" width="auto">
+    	<!-- <VBox class="sapUiSmallMargin"> -->
+		<f:SimpleForm
+			editable="true"
+			layout="ResponsiveGridLayout"
+			labelSpanXL="5"
+			labelSpanL="5"
+			labelSpanM="12"
+			labelSpanS="12"
+			adjustLabelSpan="false"
+			emptySpanXL="0"
+			emptySpanL="0"
+			emptySpanM="0"
+			emptySpanS="0"
+			columnsXL="2"
+			columnsL="2"
+			columnsM="2"
+			singleContainerFullSize="false" >
+			<f:content>
+				<core:Title  text="" />
+                <Label  text="First Missed Shift" design="Bold"> </Label>
+                <DatePicker 
+                    editable="false"
+					change="handleChange"
+					class="sapUiSmallMarginBottom"
+					showFooter="true"/>
+				<Label  text="Date of Injury/Illness" design="Bold" />
+                <DatePicker 
+                    editable="true"
+					change="handleChange"
+					class="sapUiSmallMarginBottom"
+					showFooter="true"/>
+                <Label  text="Expected Return Date" design="Bold" />
+                <DatePicker 
+                    editable="false"
+					change="handleChange"
+					class="sapUiSmallMarginBottom"
+					showFooter="true"/>
+				<core:Title text="" />
+				<Label  text="Return to Modified Work Date" design="Bold" />
+                <DatePicker 
+                    editable="true"
+					change="handleChange"
+					class="sapUiSmallMarginBottom"
+					showFooter="true"/>
+                <Label  text="Actual Return Date" design="Bold" />
+                <DatePicker 
+                    editable="false"
+					change="handleChange"
+					class="sapUiSmallMarginBottom"
+					showFooter="true"/>
+                <Label  text="Type of Return to Work" design="Bold" />
+                <ComboBox selectedKey="{oGlobalModel>/oClaimDetails/TYRTW}" items="{path:'/YXaE0ghvuhx14QTh' , filters:[{path : 'TYVAL', operator:'EQ' , value1 : 'STD_CSTM_ComboBox5' }]}">
+				    <core:Item  key="{UNQID}" text="{TXVAL}" />
+			    </ComboBox>
+			</f:content>
+		</f:SimpleForm>
+		<Label  text="Description of Injury/Illness" design="Bold"></Label>
+			<TextArea  value="" rows="5" width="100%"/>
+
+			<Label  text="Notes" design="Bold"></Label>
+			<TextArea  value="" rows="5" width="100%"/>
+	<!-- </VBox> -->
+   
+	<content>
+    </content>
+    </Panel>
+	
+
+</core:FragmentDefinition>

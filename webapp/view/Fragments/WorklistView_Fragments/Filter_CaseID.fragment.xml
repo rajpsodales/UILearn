@@ -1,0 +1,19 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core">
+	<SelectDialog
+		id="mySelectDialog"
+		noDataText="No Products Found"
+		title="Select Product"
+		search=".onSearch"
+		confirm=".onDialogClose"
+		cancel=".onDialogClose"
+		items="{path: '/IaAgpBGuf18Nhefc', sorter: [{path: 'CASEMGR_NAME', ascending: 'true'}]}"
+>
+		<StandardListItem
+			title="{CASEMGR_NAME}"
+			description="{CASEMGR_ID}"
+			iconInset="false"
+			type="Active" />
+	</SelectDialog>
+</core:FragmentDefinition>

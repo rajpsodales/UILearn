@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData">
+    <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/Common.xml" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Alias="Common" Namespace="com.sap.vocabularies.Common.v1"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.xml" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Alias="Core" Namespace="Org.OData.Core.V1"/>
+    </edmx:Reference>
+    <edmx:DataServices m:DataServiceVersion="2.0">
+        <Schema Namespace="MainServiceDisability" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+            <Annotation Term="Core.Links" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Collection>
+                    <Record>
+                        <PropertyValue Property="rel" String="author"/>
+                        <PropertyValue Property="href" String="https://cap.cloud.sap"/>
+                    </Record>
+                </Collection>
+            </Annotation>
+            <EntityContainer Name="EntityContainer" m:IsDefaultEntityContainer="true">
+                <EntitySet Name="ASDRToWpy6NGKkoeSet" EntityType="MainServiceDisability.ASDRToWpy6NGKkoeType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:addressable="false"/>
+                <EntitySet Name="ASDRToWpy6NGKkoe" EntityType="MainServiceDisability.ASDRToWpy6NGKkoeParameters" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false"/>
+                <FunctionImport Name="scNnL5Dk8A2Tg5CY" ReturnType="Edm.String" m:HttpMethod="POST">
+                    <Parameter Name="D4OXYPALUYAIDNSO" Type="Edm.String" Mode="In" Nullable="true"/>
+                </FunctionImport>
+                <AssociationSet Name="ASDRToWpy6NGKkoeParameters_Set" Association="MainServiceDisability.ASDRToWpy6NGKkoeParameters_Set">
+                    <End Role="ASDRToWpy6NGKkoeParameters" EntitySet="ASDRToWpy6NGKkoe"/>
+                    <End Role="ASDRToWpy6NGKkoeType" EntitySet="ASDRToWpy6NGKkoeSet"/>
+                </AssociationSet>
+            </EntityContainer>
+            <EntityType Name="ASDRToWpy6NGKkoeType">
+                <Key>
+                    <PropertyRef Name="RLPID"/>
+                </Key>
+                <Property Name="RLPID" Type="Edm.Int32" Nullable="false"/>
+                <Property Name="ROLNM" Type="Edm.String" MaxLength="100"/>
+                <Property Name="APPNM" Type="Edm.String" MaxLength="100"/>
+                <Property Name="ROLPH" Type="Edm.String" MaxLength="250"/>
+                <Property Name="UPRLP" Type="Edm.String" MaxLength="250"/>
+                <Property Name="RGUID" Type="Edm.String" MaxLength="50"/>
+                <Property Name="ISDEL" Type="Edm.String" MaxLength="1"/>
+                <Property Name="REBHF" Type="Edm.Int32"/>
+                <Property Name="ROLID" Type="Edm.Int32"/>
+                <NavigationProperty Name="Parameters" Relationship="MainServiceDisability.ASDRToWpy6NGKkoeParameters_Set" FromRole="ASDRToWpy6NGKkoeType" ToRole="ASDRToWpy6NGKkoeParameters"/>
+            </EntityType>
+            <EntityType Name="ASDRToWpy6NGKkoeParameters" sap:semantics="parameters">
+                <Key>
+                    <PropertyRef Name="INRGUID"/>
+                </Key>
+                <Property Name="INRGUID" Type="Edm.String" MaxLength="20" Nullable="false" sap:parameter="mandatory"/>
+                <NavigationProperty Name="Set" Relationship="MainServiceDisability.ASDRToWpy6NGKkoeParameters_Set" FromRole="ASDRToWpy6NGKkoeParameters" ToRole="ASDRToWpy6NGKkoeType"/>
+            </EntityType>
+            <Association Name="ASDRToWpy6NGKkoeParameters_Set">
+                <End Role="ASDRToWpy6NGKkoeParameters" Type="MainServiceDisability.ASDRToWpy6NGKkoeParameters" Multiplicity="0..1"/>
+                <End Role="ASDRToWpy6NGKkoeType" Type="MainServiceDisability.ASDRToWpy6NGKkoeType" Multiplicity="*"/>
+            </Association>
+            <Annotations Target="MainServiceDisability.ASDRToWpy6NGKkoeType/RLPID" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.Label" String="RLPID: Unique Id"/>
+            </Annotations>
+            <Annotations Target="MainServiceDisability.ASDRToWpy6NGKkoeType/ROLNM" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.Label" String="ROLNM: Role Name"/>
+            </Annotations>
+            <Annotations Target="MainServiceDisability.ASDRToWpy6NGKkoeType/APPNM" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.Label" String="APPNM: Application Name"/>
+            </Annotations>
+            <Annotations Target="MainServiceDisability.ASDRToWpy6NGKkoeType/ROLPH" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.Label" String="ROLPH: Role path"/>
+            </Annotations>
+            <Annotations Target="MainServiceDisability.ASDRToWpy6NGKkoeType/UPRLP" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.Label" String="UPRLP: Updated Role path"/>
+            </Annotations>
+            <Annotations Target="MainServiceDisability.ASDRToWpy6NGKkoeType/RGUID" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.Label" String="RGUID: RGUID"/>
+            </Annotations>
+            <Annotations Target="MainServiceDisability.ASDRToWpy6NGKkoeType/ISDEL" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.Label" String="ISDEL: Is deleted"/>
+            </Annotations>
+            <Annotations Target="MainServiceDisability.ASDRToWpy6NGKkoeType/REBHF" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.Label" String="REBHF: Reporting on behalf flag"/>
+            </Annotations>
+            <Annotations Target="MainServiceDisability.ASDRToWpy6NGKkoeType/ROLID" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.Label" String="ROLID: for Unique Role id"/>
+            </Annotations>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>
