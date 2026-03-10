@@ -100,7 +100,8 @@
     </Panel>
 
     <!-- short term disability panel -->
-    <Panel  class = 'sapUiTinyMargin' expandable="true" headerText="Short Term Disability" width="auto">
+    <Panel  class = 'sapUiTinyMargin' expandable="true" headerText="Short Term Disability" width="auto"
+	visible="{=${oGlobalModel>/oClaimDetails/CLMTY} === '1'}">
     	<!-- <VBox class="sapUiSmallMargin"> -->
 		<f:SimpleForm
 			editable="true"
@@ -162,6 +163,40 @@
 
 			<Label  text="Notes" design="Bold"></Label>
 			<TextArea  value="" rows="5" width="100%"/>
+	<!-- </VBox> -->
+   
+	<content>
+    </content>
+    </Panel>
+
+	// medical accomodation panel
+    <Panel visible="{=${oGlobalModel>/oClaimDetails/CLMTY} === '3'}"  class = 'sapUiTinyMargin' expandable="true" headerText="Medical Accomodation" width="auto">
+    	<!-- <VBox class="sapUiSmallMargin"> -->
+		<f:SimpleForm
+			editable="true"
+			layout="ColumnLayout"
+			columnsXL="1"
+			columnsL="1"
+			columnsM="1"
+			singleContainerFullSize="false" >
+			<f:content>
+                <Label  text="Accomodation Request" design="Bold"> </Label>
+				<MultiComboBox
+					selectionChange="handleSelectionChange"
+					selectionFinish="handleSelectionFinish"
+					selectedKeys="{oGlobalModel>/oMedicalAcc/MEDRQ}"
+					width="70%"
+					items="{
+						path: '/YXaE0ghvuhx14QTh',
+						filters:[{path : 'TYVAL', operator:'EQ' , value1 : 'MSDMTY5' },{path : 'UNQID', operator:'NE' , value1 : '2' }]
+					}">
+					<core:Item key="{UNQID}" text="{TXVAL}"/>
+			    </MultiComboBox>
+
+
+			</f:content>
+		</f:SimpleForm>
+
 	<!-- </VBox> -->
    
 	<content>

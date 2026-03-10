@@ -17,6 +17,9 @@ sap.ui.define([
             UIComponent.prototype.init.apply(this, arguments);
             var oGlobalModel = new sap.ui.model.json.JSONModel({
                 oClaimDetails:{
+                    "CLMTY":''
+                },
+                oMedicalAcc :{
                     
                 }
             })

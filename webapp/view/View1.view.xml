@@ -31,10 +31,10 @@
             </f:SimpleForm>  
             <IconTabBar visible="true" selectedKey="{worklistView>/worklist_IconTabSelect}">
                 <items>
-                    <IconTabFilter design="Horizontal" text="Claim Details" visible="true"  key="1">
+                    <IconTabFilter design="Horizontal" text="Claim Details" visible="{=${oGlobalModel>/oClaimDetails/CLMTY} !== ''}"  key="1">
                         <core:Fragment fragmentName="slsdsmevr.slsdsmevrcrclmcasemgr.view.WL_IconTab_Fragments.Frag_ClaimDetails" type="XML"/>
                     </IconTabFilter>
-                    <IconTabFilter design="Horizontal" text="Attachments" visible="true"  key="1">
+                    <IconTabFilter design="Horizontal" text="Attachments" visible="{=${oGlobalModel>/oClaimDetails/CLMTY} !== ''}"  key="2">
                         <core:Fragment fragmentName="slsdsmevr.slsdsmevrcrclmcasemgr.view.WL_IconTab_Fragments.Frag_ClaimDetails" type="XML"/>
                     </IconTabFilter>
                 </items>
